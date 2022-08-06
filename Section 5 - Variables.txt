@@ -1,0 +1,26 @@
+Public Sub DefiningVariables()
+
+Dim lr As Long                              'last row & dtype is 'Long'
+lr = Rows.Count
+Debug.Print lr                              'to print in immediate window
+
+End Sub
+
+
+
+
+Sub new_workbook()
+
+Dim nb As Workbook                          'defining object type variable
+Dim ns As Worksheet                         'defining object type variable
+
+Set nb = Workbooks.Add                      'adding a new workbook (excel file)
+Set ns = nb.Sheets(1)                       'sheet index
+
+ns.Range("a1").Value = "My name is Avra"    'writing in the sheet
+
+End Sub
+
+
+
+
