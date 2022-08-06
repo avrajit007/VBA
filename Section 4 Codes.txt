@@ -1,0 +1,47 @@
+Sub ReferToCells()
+
+Range("A1").Value = "avra"                                           'putting values in cell
+
+End Sub
+
+
+
+
+Sub Range_ref()
+
+Range("k6").Value = Range("a" & Rows.Count).End(xlUp).Row            'last row
+Range("k7").Value = Range("a" & Rows.Count).End(xlUp).Row + 1        'next empty row
+Range("k8").Value = Cells(4, Columns.Count).End(xlToLeft).Column     'last column
+Range("k9").Value = Range("a4").CurrentRegion.Address                'current region
+Range("k10").Value = Range("a4").CurrentRegion.Rows.Count            'current region rows count
+Range("k11").Value = Cells.SpecialCells(xlCellTypeLastCell).Address  'last typed cell
+
+End Sub
+
+
+
+
+Sub CopyPaste()
+
+Range("a4").CurrentRegion.Copy Range("j4")                           'paste as it is, including formualas
+
+Range("a4").CurrentRegion.Copy
+Range("j20").PasteSpecial xlPasteValues                              'Paste special only values
+Range("j20").PasteSpecial xlPasteComments                            'Paste special also comments
+
+Range("a4").CurrentRegion.Offset(1, 0). _
+Resize(Range("a4").CurrentRegion.Rows.Count - 1).Copy _              'Copy without the header
+Range("a20")
+
+End Sub
+
+
+
+
+Sub ref()
+
+Sheet5.Range("a4").CurrentRegion.Copy Sheet6.Range("a4")
+
+Workbooks("test.xlsx").Worksheets(1).Range("a3") = "my name is Avra" 'test has to remain open
+
+End Sub
